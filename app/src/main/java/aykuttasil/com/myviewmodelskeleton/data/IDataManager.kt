@@ -22,6 +22,8 @@ interface IDataManager {
 
     fun addUsers(items: List<UserEntity>)
 
+    fun getUser(userId: Long): Flowable<UserEntity>
+
     fun getUsersRx(): Flowable<List<UserEntity>>
 
     fun getUsersCount(): Flowable<Int>

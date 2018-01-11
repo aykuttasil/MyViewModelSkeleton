@@ -18,6 +18,11 @@ import javax.inject.Singleton
  */
 @Singleton
 class DataManager @Inject constructor(private val apiManager: ApiManager, private val appDatabase: AppDatabase) : IDataManager {
+
+    override fun getUser(userId: Long): Flowable<UserEntity> {
+        return Flowable.defer { Flowable.just(appDatabase.getUserDao().getItem(userId)) }
+    }
+
     override fun getUsersCount(): Flowable<Int> {
         return appDatabase.getUserDao().getItemsCount()
     }
