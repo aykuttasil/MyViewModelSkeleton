@@ -1,5 +1,6 @@
 package aykuttasil.com.myviewmodelskeleton.ui.main
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import aykuttasil.com.myviewmodelskeleton.R
@@ -41,6 +42,8 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
+
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 }
