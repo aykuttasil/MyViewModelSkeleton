@@ -1,5 +1,6 @@
 package aykuttasil.com.myviewmodelskeleton.data.local.entity
 
+import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import android.databinding.BaseObservable
@@ -12,19 +13,32 @@ import aykuttasil.com.myviewmodelskeleton.BR
 @Entity(tableName = "user")
 data class UserEntity(
         @PrimaryKey(autoGenerate = true) val UserId: Long? = null,
-        var UserName: String,
+        @ColumnInfo(name = "UserName") private var _UserName: String,
         val UserAge: Int,
         val UserCity: String,
-        val UserEmail: String
+        val UserEmail: String,
+        @ColumnInfo(name = "UserJob") private var _UserJob: String? = null
 ) : BaseObservable() {
 
-    var observeUserName: String
+    var UserName: String
         @Bindable
         get() {
-            return UserName
+            return _UserName
         }
         set(value) {
-            UserName = value
-            notifyPropertyChanged(BR.observeUserName)
+            _UserName = value
+            notifyPropertyChanged(BR.userName)
         }
+
+
+    var UserJob: String?
+        @Bindable
+        get() {
+            return _UserJob
+        }
+        set(value) {
+            _UserJob = value
+            notifyPropertyChanged(BR.userJob)
+        }
+
 }

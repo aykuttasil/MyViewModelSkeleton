@@ -51,7 +51,8 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
-        mainViewModel.addSampleUser(UserEntity(UserName = "Aykut", UserEmail = "aykuttasil@gmail.com", UserAge = 26, UserCity = "İstanbul"))
+        mainViewModel.addSampleUser(UserEntity(_UserName = "Aykut", UserEmail = "aykuttasil@gmail.com",
+                UserAge = 26, UserCity = "İstanbul", _UserJob = "Software Developer"))
 
         mainViewModel.dataManager.getUser(1)
                 .subscribeOn(Schedulers.io())
@@ -62,7 +63,7 @@ class MainActivity : BaseActivity() {
                 }
 
         binding.btnChange.onClick {
-            userEntity.observeUserName = "aykuttasil" + Random().nextInt()
+            userEntity.UserName = "aykuttasil" + Random().nextInt()
         }
 
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
