@@ -1,4 +1,4 @@
-package aykuttasil.com.myviewmodelskeleton.data
+package aykuttasil.com.myviewmodelskeleton.data.remote
 
 enum class Status {
     SUCCESS,
