@@ -1,8 +1,8 @@
 package aykuttasil.com.myviewmodelskeleton.data.remote
 
 import android.arch.lifecycle.LiveData
+import aykuttasil.com.myviewmodelskeleton.data.remote.model.Repo
 import aykuttasil.com.myviewmodelskeleton.data.remote.model.User
-import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -12,8 +12,25 @@ import retrofit2.http.Path
 interface ApiService {
 
     @GET("user")
-    fun getUser(id: String): Single<User>
+    fun getUser(): LiveData<ApiResponse<User>>
+
+    @GET("users/{login}")
+    fun getUser(@Path("login") login: String): LiveData<ApiResponse<User>>
 
     @GET("users/{login}/repos")
-    fun getRepos(@Path("login") login: String): LiveData<ApiResponse<List<User>>>
+    fun getRepos(@Path("login") login: String): LiveData<ApiResponse<List<Repo>>>
+
+    @GET("repos/{owner}/{name}")
+    fun getRepo(@Path("owner") owner: String, @Path("name") name: String): LiveData<ApiResponse<Repo>>
+
+    /*
+    @GET("repos/{owner}/{name}/contributors")
+    fun getContributors(@Path("owner") owner: String, @Path("name") name: String): LiveData<ApiResponse<List<Contributor>>>
+
+    @GET("search/repositories")
+    fun searchRepos(@Query("q") query: String): LiveData<ApiResponse<RepoSearchResponse>>
+
+    @GET("search/repositories")
+    fun searchRepos(@Query("q") query: String, @Query("page") page: Int): Call<RepoSearchResponse>
+    */
 }

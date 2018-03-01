@@ -1,4 +1,4 @@
-package aykuttasil.com.myviewmodelskeleton.util;
+package aykuttasil.com.myviewmodelskeleton.util.livedata;
 
 /*
 public abstract class LocationLiveData extends LiveData<Location> implements

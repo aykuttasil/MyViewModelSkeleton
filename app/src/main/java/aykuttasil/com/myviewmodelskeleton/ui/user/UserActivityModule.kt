@@ -1,4 +1,4 @@
-package aykuttasil.com.myviewmodelskeleton.ui.main
+package aykuttasil.com.myviewmodelskeleton.ui.user
 
 import android.content.Context
 import aykuttasil.com.myviewmodelskeleton.di.ActivityContext

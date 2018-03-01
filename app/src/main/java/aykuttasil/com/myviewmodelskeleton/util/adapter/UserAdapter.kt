@@ -39,7 +39,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
                     val oldItem = mList[oldItemPosition]
                     val newItem = mList[newItemPosition]
 
-                    return oldItem.UserName == newItem.UserName && oldItem.UserCity == newItem.UserCity
+                    return oldItem.UserName == newItem.UserName
                 }
 
                 /**

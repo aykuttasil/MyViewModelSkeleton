@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import aykuttasil.com.myviewmodelskeleton.App
 import aykuttasil.com.myviewmodelskeleton.di.ApplicationContext
+import aykuttasil.com.myviewmodelskeleton.di.ViewModelBuilder
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -14,7 +15,7 @@ import javax.inject.Singleton
  * Created by aykutasil on 8.12.2017.
  */
 
-@Module(includes = arrayOf(ViewModelModule::class))
+@Module(includes = [(ViewModelBuilder::class)])
 class AppModule {
 
     @Singleton
@@ -35,18 +36,4 @@ class AppModule {
     internal fun provideSharedPreference(application: Application): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(application.applicationContext)
     }
-
-    /*
-    @Singleton
-    @Provides
-    internal fun provideApiManager(apiService: ApiService): ApiManager {
-        return ApiManager(apiService)
-    }
-
-    @Singleton
-    @Provides
-    internal fun provideDataManager(apiManager: ApiManager, appDatabase: AppDatabase): DataManager {
-        return DataManager(apiManager, appDatabase)
-    }
-    */
 }

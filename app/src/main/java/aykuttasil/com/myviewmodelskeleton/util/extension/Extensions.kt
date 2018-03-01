@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.net.ConnectivityManager
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
@@ -402,3 +403,13 @@ fun Context.displayWidth(): Int = getDisplaySize().x
  * Retrieve a decoded bitmap from resources, or null if the image could not be decoded.
  */
 fun Context.decodeBitmap(resId: Int): Bitmap? = BitmapFactory.decodeResource(resources, resId)
+
+fun Context.isNetworkStatusAvailable(): Boolean {
+    val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+    connectivityManager?.let {
+        it.activeNetworkInfo?.let {
+            if (it.isConnected) return true
+        }
+    }
+    return false
+}

@@ -6,13 +6,6 @@ import retrofit2.Response
 import java.io.IOException
 import java.util.regex.Pattern
 
-/**
- * Created by aykutasil on 11.01.2018.
- */
-/**
- * Created by ahmedrizwan on 9/9/17.
- * A wrapper class for API Response - extracts error messages etc
- */
 class ApiResponse<T> {
     val code: Int
     val body: T?
@@ -73,11 +66,11 @@ class ApiResponse<T> {
             if (!matcher.find() || matcher.groupCount() != 1) {
                 return null
             }
-            try {
-                return Integer.parseInt(matcher.group(1))
+            return try {
+                Integer.parseInt(matcher.group(1))
             } catch (ex: NumberFormatException) {
                 Log.e("Parse", "cannot parse next page from " + next)
-                return null
+                null
             }
 
         }

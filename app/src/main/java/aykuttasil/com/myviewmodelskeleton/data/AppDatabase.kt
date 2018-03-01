@@ -11,7 +11,7 @@ import aykuttasil.com.myviewmodelskeleton.util.converter.RoomTypeConverter
 
 @Database(
         entities = [(UserEntity::class), (LocationEntity::class)],
-        version = 3)
+        version = 4)
 @TypeConverters(RoomTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 

@@ -102,6 +102,9 @@ dependencies {
         transitive = true
     }
 
+    // DataBinding
+    kapt "com.android.databinding:compiler:3.0.1"
+
     // Support
     def supportVersion = "27.0.2"
     implementation "com.android.support:appcompat-v7:$supportVersion"
@@ -111,9 +114,6 @@ dependencies {
     implementation "com.android.support:support-annotations:$supportVersion"
     implementation "com.android.support:gridlayout-v7:$supportVersion"
     implementation "com.android.support:multidex:1.0.1"
-
-    // DataBinding
-    kapt "com.android.databinding:compiler:3.0.1"
 
     // Http
     implementation "com.squareup.moshi:moshi-adapters:1.5.0"
@@ -135,21 +135,17 @@ dependencies {
     implementation "com.google.firebase:firebase-database:$playServiceVersion"
 
     // Dagger
-    def daggerVersion = "2.13"
-    // Dagger core
+    def daggerVersion = "2.14.1"
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     implementation "com.google.dagger:dagger:$daggerVersion"
-    // Dagger Android
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
-    // if you are not using support library, include this instead
-    // implementation "com.google.dagger:dagger-android:$daggerVersion"
 
     // Android Arch
     // LiveData - ViewModel
-    implementation "android.arch.lifecycle:extensions:1.0.0"
+    implementation "android.arch.lifecycle:extensions:1.1.0"
     // To use LiveData with ReactiveStreams API
-    implementation "android.arch.lifecycle:reactivestreams:1.0.0"
+    implementation "android.arch.lifecycle:reactivestreams:1.1.0"
     // Room
     implementation "android.arch.persistence.room:runtime:1.0.0"
     kapt "android.arch.persistence.room:compiler:1.0.0"
@@ -163,9 +159,11 @@ dependencies {
     implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
     implementation "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    // Kotlin Extensions
+    implementation 'androidx.core:core-ktx:0.1'
 
     // Rx
-    implementation "io.reactivex.rxjava2:rxkotlin:2.1.0"
+    implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
     implementation "io.reactivex.rxjava2:rxandroid:2.0.1"
     implementation "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar"
 
@@ -180,6 +178,7 @@ dependencies {
 
     // Timber
     implementation "com.jakewharton.timber:timber:4.6.0"
+
 }
 
 // apply plugin: 'com.google.gms.google-services'

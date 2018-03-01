@@ -1,4 +1,4 @@
-package aykuttasil.com.myviewmodelskeleton.util
+package aykuttasil.com.myviewmodelskeleton.util.livedata
 
 import android.arch.lifecycle.LiveData
 

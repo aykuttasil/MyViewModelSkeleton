@@ -1,15 +1,11 @@
 package aykuttasil.com.myandroidstructure.data
 
 import android.arch.lifecycle.LiveData
-import android.util.Log
-import aykuttasil.com.myandroidstructure.data.remote.ApiManager
-import aykuttasil.com.myviewmodelskeleton.data.AppDatabase
 import aykuttasil.com.myviewmodelskeleton.data.IDataManager
+import aykuttasil.com.myviewmodelskeleton.data.Resource
 import aykuttasil.com.myviewmodelskeleton.data.local.entity.LocationEntity
 import aykuttasil.com.myviewmodelskeleton.data.local.entity.UserEntity
-import io.reactivex.Flowable
-import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
+import aykuttasil.com.myviewmodelskeleton.data.repository.UserRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,8 +13,17 @@ import javax.inject.Singleton
  * Created by aykutasil on 8.12.2017.
  */
 @Singleton
-class DataManager @Inject constructor(private val apiManager: ApiManager, private val appDatabase: AppDatabase) : IDataManager {
+class DataManager @Inject constructor(private val userRepository: UserRepository) : IDataManager {
 
+    override fun getUser(username: String): LiveData<Resource<UserEntity>> {
+        return userRepository.getUser(username)
+    }
+
+    override fun addLocation(loc: LocationEntity) {
+
+    }
+
+    /*
     override fun getUser(userId: Long): Flowable<UserEntity> {
         return Flowable.defer { Flowable.just(appDatabase.getUserDao().getItem(userId)) }
     }
@@ -95,5 +100,7 @@ class DataManager @Inject constructor(private val apiManager: ApiManager, privat
     fun getUsersToLocalLive(): LiveData<List<UserEntity>> {
         return appDatabase.getUserDao().getItemsLiveData()
     }
+    */
+
 
 }

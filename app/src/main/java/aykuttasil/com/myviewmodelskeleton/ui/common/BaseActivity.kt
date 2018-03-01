@@ -1,6 +1,5 @@
-package aykuttasil.com.myviewmodelskeleton.ui.base
+package aykuttasil.com.myviewmodelskeleton.ui.common
 
-import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import dagger.android.DispatchingAndroidInjector
@@ -17,12 +16,6 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun supportFragmentInjector(): DispatchingAndroidInjector<Fragment> {
         return dispatchingAndroidInjector
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        // AppInjector sınıfı kullanıldığı için Activity ve Fragment dependency lerini bu sınıf inject eder.
-        // AndroidInjection.inject(this)
-        super.onCreate(savedInstanceState)
     }
 
 }

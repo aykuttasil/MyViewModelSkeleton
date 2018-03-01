@@ -1,12 +1,8 @@
 package aykuttasil.com.myviewmodelskeleton.data.local.dao
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.*
-import aykuttasil.com.myviewmodelskeleton.data.local.entity.UserEntity
-import io.reactivex.Flowable
-
+/*
 @Dao
-abstract class UserDao {
+abstract class RepoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertItems(list: List<UserEntity>)
@@ -20,25 +16,23 @@ abstract class UserDao {
     @Delete
     abstract fun deletetItem(item: UserEntity)
 
-    @Query("SELECT count(*) FROM user")
+    @Query("SELECT count(*) FROM repo")
     abstract fun getItemsCount(): Flowable<Int>
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM repo")
     abstract fun getItems(): Flowable<List<UserEntity>>
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM repo")
     abstract fun getItemsLiveData(): LiveData<List<UserEntity>>
 
-    @Query("SELECT * FROM user WHERE UserId=:id")
+    @Query("SELECT * FROM repo WHERE repoId=:id")
     abstract fun getItem(id: Long): UserEntity
 
-    @Query("SELECT * FROM user")
+    @Query("SELECT * FROM repo")
     abstract fun getItem(): LiveData<UserEntity>
-
-    @Query("SELECT * FROM user WHERE UserEmail=:username")
-    abstract fun getItem(username: String): LiveData<UserEntity>
 
     @Insert
     abstract fun insertAll(vararg users: UserEntity)
 
 }
+        */

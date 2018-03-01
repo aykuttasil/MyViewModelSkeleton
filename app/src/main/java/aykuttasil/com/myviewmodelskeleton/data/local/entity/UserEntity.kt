@@ -13,17 +13,15 @@ import aykuttasil.com.myviewmodelskeleton.BR
 @Entity(tableName = "user")
 data class UserEntity(
         @PrimaryKey(autoGenerate = true) val UserId: Long? = null,
-        @ColumnInfo(name = "UserName") private var _UserName: String,
-        val UserAge: Int,
-        val UserCity: String,
-        val UserEmail: String,
+        @ColumnInfo(name = "UserName") private var _UserName: String?,
+        val UserEmail: String?,
         @ColumnInfo(name = "UserJob") private var _UserJob: String? = null
 ) : BaseObservable() {
 
     var UserName: String
         @Bindable
         get() {
-            return _UserName
+            return _UserName ?: ""
         }
         set(value) {
             _UserName = value

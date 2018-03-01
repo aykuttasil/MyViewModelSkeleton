@@ -1,19 +1,16 @@
 package aykuttasil.com.myviewmodelskeleton.ui.main
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import aykuttasil.com.myviewmodelskeleton.R
-import aykuttasil.com.myviewmodelskeleton.data.local.entity.UserEntity
 import aykuttasil.com.myviewmodelskeleton.databinding.ActivityMainBinding
 import aykuttasil.com.myviewmodelskeleton.di.ViewModelFactory
-import aykuttasil.com.myviewmodelskeleton.ui.base.BaseActivity
+import aykuttasil.com.myviewmodelskeleton.ui.common.BaseActivity
+import aykuttasil.com.myviewmodelskeleton.ui.common.RetryCallback
 import aykuttasil.com.myviewmodelskeleton.util.delegates.contentView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
-import java.util.*
 import javax.inject.Inject
 
 
@@ -25,9 +22,6 @@ class MainActivity : BaseActivity() {
     lateinit var viewModelFactory: ViewModelFactory
 
     private lateinit var mainViewModel: MainViewModel
-
-    private lateinit var userEntity: UserEntity
-
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -49,23 +43,21 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
-        mainViewModel.addSampleUser(UserEntity(_UserName = "Aykut", UserEmail = "aykuttasil@gmail.com",
-                UserAge = 26, UserCity = "İstanbul", _UserJob = "Software Developer"))
 
-        mainViewModel.dataManager.getUser(1)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe {
-                    userEntity = it
-                    binding.user = userEntity
+        mainViewModel.getUser("aykuttasillll").observe(this, Observer {
+            binding.user = it?.data
+            binding.resource = it
+            binding.callback = object : RetryCallback {
+                override fun retry() {
+                    mainViewModel.retryGetUser("aykuttasil")
                 }
 
-        binding.btnChange.onClick {
-            userEntity.UserName = "aykuttasil" + Random().nextInt()
-        }
+            }
+            binding.executePendingBindings()
+        })
 
-        binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 }
