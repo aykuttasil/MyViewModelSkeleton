@@ -70,15 +70,15 @@ class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>
         return mList.size
     }
 
-    override fun onBindViewHolder(holder: LocationViewHolder?, position: Int) {
-        holder?.bind(mList[position])
+    override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
+        holder.bind(mList[position])
     }
 
-    override fun onBindViewHolder(holder: LocationViewHolder?, position: Int, payloads: MutableList<Any>?) {
+    override fun onBindViewHolder(holder: LocationViewHolder, position: Int, payloads: MutableList<Any>) {
         super.onBindViewHolder(holder, position, payloads)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): LocationViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationViewHolder {
         return LocationViewHolder.create(parent)
     }
 
