@@ -8,6 +8,7 @@ import aykuttasil.com.myviewmodelskeleton.R
 import aykuttasil.com.myviewmodelskeleton.databinding.ActivityMainBinding
 import aykuttasil.com.myviewmodelskeleton.di.ViewModelFactory
 import aykuttasil.com.myviewmodelskeleton.ui.common.BaseActivity
+import aykuttasil.com.myviewmodelskeleton.ui.common.NavigationController
 import aykuttasil.com.myviewmodelskeleton.ui.common.RetryCallback
 import aykuttasil.com.myviewmodelskeleton.util.delegates.contentView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,6 +21,9 @@ class MainActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+
+    @Inject
+    lateinit var navigationController: NavigationController
 
     private lateinit var mainViewModel: MainViewModel
 
