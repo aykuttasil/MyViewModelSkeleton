@@ -17,13 +17,13 @@ constructor() {
     private val result = MediatorLiveData<Resource<ResultType>>()
 
     init {
-        val dbSource = loadFromDb()
+        val dbSource = this.loadFromDb()
         result.addSource(dbSource) { resultType ->
             result.removeSource(dbSource)
             if (shouldFetch(resultType)) {
                 fetchFromNetwork(dbSource)
             } else {
-                result.addSource(dbSource) { resultType -> result.value = Resource.success(resultType) }
+                result.addSource(dbSource) { result.value = Resource.success(it) }
             }
         }
     }
