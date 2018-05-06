@@ -7,6 +7,7 @@ import aykuttasil.com.myviewmodelskeleton.databinding.ActivityUserBinding
 import aykuttasil.com.myviewmodelskeleton.di.ViewModelFactory
 import aykuttasil.com.myviewmodelskeleton.ui.common.BaseActivity
 import aykuttasil.com.myviewmodelskeleton.util.delegates.contentView
+import aykuttasil.com.myviewmodelskeleton.util.logd
 import javax.inject.Inject
 
 
@@ -21,6 +22,7 @@ class UserActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        logd { "oncreate" }
         viewModel = ViewModelProviders.of(this@UserActivity, viewModelFactory).get(UserViewModel::class.java)
     }
 }

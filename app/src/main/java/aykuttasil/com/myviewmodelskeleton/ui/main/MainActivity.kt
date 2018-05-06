@@ -115,7 +115,7 @@ class MainActivity : BaseActivity() {
         load {
             // This run on a background thread
             logd { "Start loading image on thread ${Thread.currentThread().name}" }
-            delay(5000L) // Fake a long loading so we can test what happens in onStop()
+            delay(2000L) // Fake a long loading so we can test what happens in onStop()
             MediaStore.Images.Media.getBitmap(contentResolver, uri)
         } then {
             // This runs on the main thread
