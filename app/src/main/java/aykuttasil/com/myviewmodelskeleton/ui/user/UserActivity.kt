@@ -18,7 +18,7 @@ class UserActivity : BaseActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
