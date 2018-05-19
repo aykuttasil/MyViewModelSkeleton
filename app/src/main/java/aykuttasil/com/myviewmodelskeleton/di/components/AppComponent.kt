@@ -3,6 +3,7 @@ package aykuttasil.com.myviewmodelskeleton.di.components
 import android.app.Application
 import aykuttasil.com.myviewmodelskeleton.App
 import aykuttasil.com.myviewmodelskeleton.di.ActivityBuilder
+import aykuttasil.com.myviewmodelskeleton.di.ServiceBuilder
 import aykuttasil.com.myviewmodelskeleton.di.modules.AppModule
 import aykuttasil.com.myviewmodelskeleton.di.modules.DatabaseModule
 import aykuttasil.com.myviewmodelskeleton.di.modules.NetworkModule
@@ -20,6 +21,7 @@ import javax.inject.Singleton
 @Component(modules = [
     (AndroidSupportInjectionModule::class),
     (ActivityBuilder::class),
+    (ServiceBuilder::class),
     (AppModule::class),
     (NetworkModule::class),
     (DatabaseModule::class)])
