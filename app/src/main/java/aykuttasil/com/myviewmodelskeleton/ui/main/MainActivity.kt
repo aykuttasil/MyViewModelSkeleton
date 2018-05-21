@@ -8,6 +8,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.design.widget.BottomNavigationView
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.work.WorkManager
+import androidx.work.ktx.OneTimeWorkRequestBuilder
 import aykuttasil.com.myviewmodelskeleton.R
 import aykuttasil.com.myviewmodelskeleton.databinding.ActivityMainBinding
 import aykuttasil.com.myviewmodelskeleton.di.ViewModelFactory
@@ -123,5 +127,7 @@ class MainActivity : BaseActivity() {
             imageView.setImageBitmap(it)
         }
     }
+
+    // override fun onSupportNavigateUp() = Navigation.findNavController(R.id.nav_host_fragment).navigateUp()
 
 }

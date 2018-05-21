@@ -158,6 +158,14 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:1.1.0"
     implementation "android.arch.persistence.room:rxjava2:1.1.0"
     // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
+    // Navigation
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha01'
+
+    def work_version = "1.0.0-alpha01"
+    implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
+    // optional - Firebase JobDispatcher support
+    implementation "android.arch.work:work-firebase:$work_version"
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -183,6 +191,7 @@ dependencies {
 
     // Kotlin Extensions
     implementation 'androidx.core:core-ktx:0.3'
+    // implementation 'androidx.core:core-ktx:1.0.0-alpha1'
 
     // Rx
     implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
