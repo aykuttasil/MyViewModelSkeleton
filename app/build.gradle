@@ -159,8 +159,9 @@ dependencies {
     implementation "android.arch.persistence.room:rxjava2:1.1.0"
     // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
     // Navigation
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha01'
-    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha01'
+    def navigation_version = "1.0.0-alpha01"
+    implementation "android.arch.navigation:navigation-fragment:$navigation_version"
+    implementation "android.arch.navigation:navigation-ui:$navigation_version"
 
     def work_version = "1.0.0-alpha01"
     implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
