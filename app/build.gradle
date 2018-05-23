@@ -140,7 +140,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:$playServiceVersion"
     implementation "com.google.android.gms:play-services-places:$playServiceVersion"
 
-    def firebaseVersion = "15.0.1"
+    def firebaseVersion = "16.0.1"
     implementation "com.google.firebase:firebase-database:$firebaseVersion"
 
     // Dagger
