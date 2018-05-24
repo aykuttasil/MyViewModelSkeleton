@@ -120,6 +120,15 @@
                 android:layout_height="wrap_content"
                 android:text="Go User Activity" />
 
+            <Button
+                android:id="@+id/btnShowNotif"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Notif"
+                tools:layout_editor_absoluteX="11dp"
+                tools:layout_editor_absoluteY="208dp" />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -131,6 +140,7 @@
             layout="@layout/loading_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="invisible"
             app:callback="@{callback}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

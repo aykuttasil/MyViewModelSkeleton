@@ -115,6 +115,7 @@ dependencies {
 
     // Support
     def supportVersion = "27.1.1"
+    implementation "com.android.support:support-v4:$supportVersion"
     implementation "com.android.support:appcompat-v7:$supportVersion"
     implementation "com.android.support:support-compat:$supportVersion"
     implementation "com.android.support:animated-vector-drawable:$supportVersion"
@@ -214,3 +215,4 @@ dependencies {
 }
 
 // apply plugin: 'com.google.gms.google-services'
+

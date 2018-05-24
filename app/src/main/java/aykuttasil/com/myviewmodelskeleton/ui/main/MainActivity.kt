@@ -8,16 +8,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.design.widget.BottomNavigationView
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.work.WorkManager
-import androidx.work.ktx.OneTimeWorkRequestBuilder
 import aykuttasil.com.myviewmodelskeleton.R
 import aykuttasil.com.myviewmodelskeleton.databinding.ActivityMainBinding
 import aykuttasil.com.myviewmodelskeleton.di.ViewModelFactory
 import aykuttasil.com.myviewmodelskeleton.ui.common.BaseActivity
 import aykuttasil.com.myviewmodelskeleton.ui.common.NavigationController
 import aykuttasil.com.myviewmodelskeleton.ui.common.RetryCallback
+import aykuttasil.com.myviewmodelskeleton.util.NewMessageNotification
 import aykuttasil.com.myviewmodelskeleton.util.delegates.contentView
 import aykuttasil.com.myviewmodelskeleton.util.load
 import aykuttasil.com.myviewmodelskeleton.util.logd
@@ -87,6 +84,10 @@ class MainActivity : BaseActivity() {
             val intent = Intent(Intent.ACTION_GET_CONTENT).also { it.type = "image/*" }
             startActivityForResult(intent, IMAGE_PICK_REQUEST)
             logd { "Pick a photo from media store." }
+        }
+
+        btnShowNotif.setOnClickListener {
+            NewMessageNotification.notify(this, "Test", 1)
         }
 
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_IMAGE_URI)) {
