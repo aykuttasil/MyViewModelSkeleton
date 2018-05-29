@@ -66,7 +66,6 @@ class MainActivity : BaseActivity() {
         binding.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         mainViewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
-
         mainViewModel.getUser("aykuttasillll").observe(this, Observer {
             binding.user = it?.data
             binding.resource = it

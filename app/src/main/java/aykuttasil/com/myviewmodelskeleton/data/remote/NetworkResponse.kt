@@ -1,4 +1,4 @@
-package aykuttasil.com.myviewmodelskeleton.data.remote.model
+package aykuttasil.com.myviewmodelskeleton.data.remote
 
 /**
  * Created by aykutasil on 30.01.2018.
