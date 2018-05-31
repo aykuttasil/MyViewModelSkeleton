@@ -82,7 +82,6 @@ class MainActivity : BaseActivity() {
         btnImagePicker.setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT).also { it.type = "image/*" }
             startActivityForResult(intent, IMAGE_PICK_REQUEST)
-            logd { "Pick a photo from media store." }
         }
 
         btnShowNotif.setOnClickListener {
