@@ -23,9 +23,9 @@ class MainViewModel @Inject constructor(val app: App, private val dataManager: D
 
     fun getUser(username: String): LiveData<Resource<UserEntity>> {
         liveUserName.postValue(username)
-        return Transformations.switchMap(liveUserName, {
+        return Transformations.switchMap(liveUserName) {
             dataManager.getUser(it)
-        })
+        }
     }
 
     fun retryGetUser(username: String) {
