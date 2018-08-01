@@ -32,11 +32,11 @@ class UserRepository @Inject constructor(val apiService: ApiService, val userDao
             }
 
             override fun createCall(): LiveData<ApiResponse<User>> {
-                return Transformations.map(apiService.getUser(username), {
+                return Transformations.map(apiService.getUser(username)) {
                     val toplam = (1..1000000).sum()
                     println(toplam)
                     it
-                })
+                }
             }
 
         }.asLiveData()
